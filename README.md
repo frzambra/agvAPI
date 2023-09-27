@@ -1,13 +1,13 @@
 ## agvAPI
 
 ## Uso
-```{r}
+```r
 install.packages('remotes')
 remotes::install_github('frzambra/agvAPI')
 ```
 ## Ejemplos
 
-```{r}
+```r
 library(agvAPI)
 data_sm1 <- getdataAGV_sm()
 
