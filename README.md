@@ -17,4 +17,3 @@ data2 <- getDataAGV_clima(station_id ='0020500D',var = 'Temperature', time_span 
 
 data3 <- getDataAGV_clima(station_id ='00203581',var = 'Temperature', time_span = c("2022-07-27",'2022-07-28')) 
 ```
-`
