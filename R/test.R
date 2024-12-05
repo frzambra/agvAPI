@@ -11,7 +11,7 @@ token <- "Token e8357468a4eda4fdc97d480fbd0ba0cfac3c0e4b"
 #data_sm1 <- getdataAGV_sm()
 
 # test for sensor type z-[0-9]{5}
-# data1 <- getDataAGV_clima(station_id ='z6-12948',var = 'Temperature', time_span = c("2022-07-27",'2022-07-28')) 
+#data1 <- getDataAGV_clima(station_id ='z6-12948',var = 'Temperature', time_span = c("2022-07-27",'2022-07-28')) 
 # 
 # data2 <- getDataAGV_clima(station_id ='0020500D',var = 'Temperature', time_span = c("2022-07-27",'2022-07-28'))
 # data3 <- getDataAGV_clima(station_id ='00203581',var = 'Temperature', time_span = c("2022-07-27",'2022-07-28')) 

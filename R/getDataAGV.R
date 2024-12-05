@@ -4,19 +4,19 @@
 #' @param time_span time_span character vector of dates (%Y-%m-%d) having c(start_date,end_date) 
 #'
 #' @return
+#' @import  httr2
+#' @importFrom jsonlite fromJSON
+#' @importFrom dplyr pull
 #' @export
 #'
-#' @examples
 getdataAGV <- function(station_id,time_span){
-  resp <- httr::GET(api_url,
-                    query = list(
-                      format = 'json',
-                      stations = station_id,
-                      start = time_span[1],
-                      end =time_span[2]),
-                    config = httr::config(ssl_verifypeer = FALSE),
-                    httr::authenticate("agricolagarces", "user12345")) |> 
-    httr::content("text",encoding = 'UTF-8') |>
+ 
+  resp <- request(api_url) |> 
+    httr2::req_auth_basic(usrpass[1], usrpass[2]) |> 
+    httr2::req_headers("Accept" = "application/json") |> 
+    httr2::req_url_path_append(glue::glue('?stations={station_id}&start={time_span[1]}&end={time_span[2]}')) |> 
+    httr2::req_perform() |> 
+    httr2::resp_body_string() |>
     jsonlite::fromJSON() |> 
     dplyr::pull(sensors) |> 
     as.data.frame() |> 

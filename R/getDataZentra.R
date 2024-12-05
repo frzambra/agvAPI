@@ -32,13 +32,13 @@ getDataZentra <- function(token,var='Water Content',device_sn = "z6-10293",port,
               add_headers("Authorization" =token ),
               query = list(
                 device_sn = device_sn,
-                start_date = format(time_span[1],"%m-%d-%Y %H:%M"),
-                end_date =format(time_span[2],"%m-%d-%Y %H:%M")
-              ))
+                start_date = format(time_span[1],'%m-%d-%Y %H:%M'),
+                end_date = format(time_span[2],'%m-%d-%Y %H:%M')
+              )) 
 
   data <- fromJSON(content(resp, "text"), simplifyVector = FALSE)
   
-  stopifnot(names(data)[1] == 'detail') 
+  #stopifnot(names(data)[1] == 'detail') 
   
   varPos <- which(var == names(data[['data']]))
   ports <- unlist(sapply(data[['data']][[varPos]],'[[',1)[3,])

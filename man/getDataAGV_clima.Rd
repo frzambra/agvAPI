@@ -17,9 +17,6 @@ getDataAGV_clima(
 
 \item{time_span}{character vector of dates (\%Y-\%m-\%d) having c(start_date,end_date)}
 }
-\value{
-
-}
 \description{
 Get climatic data from agviewer.com/api/v1
 }

@@ -11,9 +11,6 @@ getdataAGV(station_id, time_span)
 
 \item{time_span}{time_span character vector of dates (\%Y-\%m-\%d) having c(start_date,end_date)}
 }
-\value{
-
-}
 \description{
 Get raw list-column data from agviewer.com/api/v2
 }

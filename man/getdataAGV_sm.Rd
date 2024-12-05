@@ -14,9 +14,6 @@ getdataAGV_sm(
 
 \item{time_span}{character vector of dates (\%Y-\%m-\%d) having c(start_date,end_date)}
 }
-\value{
-
-}
 \description{
 Get soil moisture data from agviewer.com/api/v1
 }

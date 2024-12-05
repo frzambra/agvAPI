@@ -5,6 +5,7 @@
 #' @param var pattern of the variable name to be search via regular expression 
 #'
 #' @return
+#' @importFrom dplyr across select if_any
 #' @export
 #'
 #' @examples
@@ -76,6 +77,11 @@ getDataAGV_clima <- function(station_id = 'z6-14410', var = 'Temperature', time_
         d |> 
           tidyr::pivot_wider(names_from=description,values_from = value)
       }) 
+    
+    if (var == 'Temperature') 
+      data_out <- data_out |> 
+      dplyr::filter(if_any(1,\(x) x =='avg')) |> 
+      dplyr::select(1:2)
     
     datetime <- resp |> 
       dplyr::filter(grepl(glue::glue('{var}|{tolower(var)}'),name)) |> 
