@@ -78,7 +78,7 @@ getDataAGV_clima <- function(station_id = 'z6-14410', var = 'Temperature', time_
           tidyr::pivot_wider(names_from=description,values_from = value)
       }) 
     
-    if (var == 'Temperature' | var == 'VPD') 
+    if (var == 'Temperature' | var == 'VPD' | stringr::str_detect(var,'Relative humidity')) 
       data_out <- data_out |> 
       dplyr::filter(if_any(1,\(x) x =='avg')) |> 
       dplyr::select(1:2)
